@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
     fs.appendFileSync('source/logs/logs.txt', `The homepage was accessed at ${Date.now()}\n`);
   });
 
-const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 7566;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
 });
