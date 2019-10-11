@@ -4,12 +4,16 @@ RUN apt-get update
 
 RUN apt install -y git
 
-RUN apt install -y nodejs
+RUN apt install -y npm
+
+RUN npm install nodejs
+
+RUN npm install express
 
 RUN git clone https://github.com/Reb29/CEN-AWS-Service.git
 
-EXPOSE 80 7566
+EXPOSE 80 80
 
-RUN echo pwd
+RUN npm install express
 
 RUN node CEN-AWS-Service/source/server.js
