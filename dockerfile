@@ -2,7 +2,7 @@ FROM nginx
 
 RUN mkdir ~/logs
 
-RUN touch ~/logs/logs
+RUN touch ~/logs/logs.txt
 
 RUN apt-get update
 
@@ -16,7 +16,7 @@ RUN npm install express
 
 RUN git clone https://github.com/Reb29/CEN-AWS-Service.git
 
-EXPOSE 80 7566
+EXPOSE 7566 7566
 
 RUN npm install express
 
