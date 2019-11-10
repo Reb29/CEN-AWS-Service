@@ -16,8 +16,10 @@ RUN npm install express
 
 RUN git clone https://github.com/Reb29/CEN-AWS-Service.git
 
-EXPOSE 7566 7566
+EXPOSE 7566
 
 RUN npm install express
 
 RUN node CEN-AWS-Service/source/server.js
+
+docker run -ti --name=server -v LogVolume:/logs nginx
