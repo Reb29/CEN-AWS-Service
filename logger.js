@@ -2,8 +2,9 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const readline = require('readline');
+global.__basedir = __dirname;
 
-var file = `${process.env.HOME}/logs/logs.txt`;
+var file = `${__dirname}/logs/logs.txt`;
 
 let rl = readline.createInterface({
     input: fs.createReadStream(file)
@@ -136,7 +137,7 @@ app.get('/getlastrequesttime', (req, res) => {
          })
 });
 
-const PORT = process.env.PORT || 7566;
+const PORT = process.env.PORT || 7501;
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}.`);

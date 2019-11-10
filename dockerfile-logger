@@ -1,0 +1,15 @@
+FROM nginx
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN apt-get update
+
+RUN apt install npm -y
+
+RUN npm install
+
+COPY . .
+
+CMD [ "npm", "log" ]

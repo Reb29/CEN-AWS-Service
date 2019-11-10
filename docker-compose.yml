@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: dockerfile-server
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - LogVolume:/usr/src/app/logs
+    ports:
+      - 80:7500
+  logger:
+    build:
+      context: .
+      dockerfile: dockerfile-logger
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+      - LogVolume:/usr/src/app/logs
+    ports:
+      - 8080:7501
+volumes:
+  LogVolume:

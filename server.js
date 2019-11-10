@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
+global.__basedir = __dirname;
 
 var food = [
   {name: 'Hotdog', price: '20'},
@@ -22,7 +23,7 @@ return 0;
 
 
 function log(str) { 
-    fs.appendFileSync(`${process.env.HOME}/logs/logs.txt`, `${str} %${getDate()}%\n`);
+    fs.appendFileSync(`${__dirname}/logs/logs.txt`, `${str} %${getDate()}%\n`);
 } 
 
 
@@ -73,7 +74,7 @@ app.get('/', (req, res) => {
   });
 
 
-const PORT = process.env.PORT || 7566;
+const PORT = process.env.PORT || 7500;
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}.`);
